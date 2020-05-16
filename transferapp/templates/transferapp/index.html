@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+        {% for field in pictureform %}
+        <div class="form-group">
+            {{field.label_tag}}
+            <div>{{field}}</div>
+            <div class="error">{{field.errors}}</div>
+        </div>
+        {% endfor %}
+        </div>
+        <input type="submit" value="Send" >
+    </form>
+
+{% endblock %}
